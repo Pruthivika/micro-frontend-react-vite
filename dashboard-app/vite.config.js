@@ -12,13 +12,12 @@ export default defineConfig({
       filename: 'dashboardEntry.js',
       exposes: {
         './LineChart': './src/exports/LineChart',
+        './CardWidget': './src/exports/CardWidget'
       },
-      shared: {
-        "highcharts-react-official": { singleton: true, eager: true, requiredVersion: "^3.2.1" },
-        highcharts: { singleton: true, eager: true, requiredVersion: "^10.0.0" },
-        react: { singleton: true, eager: true, requiredVersion: "^19.0.0" },
-        "react-dom": { singleton: true, eager: true, requiredVersion: "^19.0.0" },
+      remotes: {
+        container: "http://localhost:3000/assets/containerEntry.js",
       },
+      shared: ["highcharts-react-official", "highcharts", "react", "react-dom", "react-redux", "redux-saga", "@reduxjs/toolkit", "@chakra-ui/react"],
     }),
 
   ],

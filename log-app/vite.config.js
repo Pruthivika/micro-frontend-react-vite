@@ -13,7 +13,7 @@ export default defineConfig({
       exposes: {
         './LogList': './src/exports/LogList',
       },
-      shared: ['react', 'react-dom'],
+      shared: ["react", "react-dom", "react-redux", "redux-saga", "@reduxjs/toolkit", "@chakra-ui/react"],
     }),
   ],
   build: {
