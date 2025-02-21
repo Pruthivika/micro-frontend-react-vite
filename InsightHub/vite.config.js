@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths(),
   federation({
     name: 'app',
+    filename: 'containerEntry.js',
     remotes: {
       dashboardApp: 'http://localhost:5001/assets/dashboardEntry.js',
       logApp: 'http://localhost:5002/assets/logEntry.js'

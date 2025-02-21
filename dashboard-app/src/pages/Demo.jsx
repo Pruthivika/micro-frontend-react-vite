@@ -1,6 +1,7 @@
 import CardWidget from "@/exports/CardWidget"
 import React from "react"
 import { Grid, GridItem } from "@chakra-ui/react"
+import LineChart from "@/exports/LineChart"
 
 const DemoPage = () => {
     return (
@@ -14,13 +15,13 @@ const DemoPage = () => {
                 <CardWidget />
             </GridItem>
             <GridItem colSpan={2}>
-                colSpan=2
+                <CardWidget />
             </GridItem>
             <GridItem colSpan={2}>
-                colSpan=2
+
             </GridItem>
             <GridItem colSpan={4}>
-                colSpan=4
+                <LineChart />
             </GridItem>
         </Grid>
     )

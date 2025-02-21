@@ -1,22 +1,35 @@
-import { Link } from "react-router-dom";
-import { Box, Flex, Button } from "@chakra-ui/react";
+import { NavLink, Outlet } from "react-router-dom";
+import { Box, Flex, Stack } from "@chakra-ui/react";
 
-const Layout = ({ children }) => {
+const Layout = () => {
     return (
-        <Box>
-            <Flex as="nav" p="4" bg="blue.500" color="white" justify="space-between">
-                <Box fontSize="xl">Micro Frontend App</Box>
-                <Flex gap="4">
-                    <Button as={Link} to="/dashboard" colorScheme="teal">
+        <Flex h="80vh">
+            <Box borderTopLeftRadius={20} borderBottomLeftRadius={20} w="250px" bg="#726392" color="white" p="4">
+                <Box fontSize="xl" mb="4">Micro Frontend App</Box>
+                <Stack spacing="4">
+                    <NavLink to="/dashboard" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
                         Dashboard
-                    </Button>
-                    <Button as={Link} to="/log" colorScheme="teal">
-                        Log
-                    </Button>
-                </Flex>
-            </Flex>
-            <Box p="4">{children}</Box>
-        </Box>
+                    </NavLink>
+                    <NavLink to="/log" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
+                        Data Lab
+                    </NavLink>
+                    <NavLink to="/default" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
+                        Surveys
+                    </NavLink>
+                    <NavLink to="/default" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
+                        Library
+                    </NavLink>
+                    <NavLink to="/default" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
+                        Marketplace
+                    </NavLink>
+                </Stack>
+            </Box>
+
+            {/* Content Area */}
+            <Box borderTopRightRadius={10} borderBottomRightRadius={10} flex="1" p="4" bg="gray.100">
+                <Outlet /> {/* This will render the routed content */}
+            </Box>
+        </Flex>
     );
 };
 
