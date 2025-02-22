@@ -1,13 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { Box, Flex, Stack } from "@chakra-ui/react";
+import { Box, Flex, Stack, Image } from "@chakra-ui/react";
+import LogoImage from "./assets/logo.png";
 
 const Layout = () => {
     return (
-        <Flex h="80vh">
-            <Box borderTopLeftRadius={20} borderBottomLeftRadius={20} w="250px" bg="#726392" color="white" p="4">
-                <Box fontSize="xl" mb="4">Micro Frontend App</Box>
-                <Stack spacing="4">
-                    <NavLink to="/dashboard" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
+        <Flex h="90vh">
+            <Box w="250px" bg="#726392" color="white" p="4">
+                <Image src={LogoImage} alt="Logo" marginBottom={10} />
+                <Stack spacing="4" color={'white'}>
+                    <NavLink to="/" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
                         Dashboard
                     </NavLink>
                     <NavLink to="/log" style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal", borderBottom: "1px solid", paddingBottom: "8px" })}>
@@ -25,9 +26,9 @@ const Layout = () => {
                 </Stack>
             </Box>
 
-            {/* Content Area */}
+
             <Box borderTopRightRadius={10} borderBottomRightRadius={10} flex="1" p="4" bg="gray.100">
-                <Outlet /> {/* This will render the routed content */}
+                <Outlet />
             </Box>
         </Flex>
     );

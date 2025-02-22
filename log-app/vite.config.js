@@ -13,6 +13,9 @@ export default defineConfig({
       exposes: {
         './LogList': './src/exports/LogList',
       },
+      remotes: {
+        container: "http://localhost:3000/assets/containerEntry.js",
+      },
       shared: ["react", "react-dom", "react-redux", "redux-saga", "@reduxjs/toolkit", "@chakra-ui/react"],
     }),
   ],

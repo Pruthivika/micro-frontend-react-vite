@@ -5,12 +5,15 @@ import './index.css'
 import App from './App.jsx'
 import { Provider as ReduxProvider } from "react-redux";
 import store from "container/store";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ReduxProvider store={store}>
       <UIProvider>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </UIProvider>
     </ReduxProvider>
   </StrictMode>,

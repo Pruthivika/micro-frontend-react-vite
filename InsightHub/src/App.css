@@ -4,10 +4,26 @@
   padding: 2rem;
   text-align: center;
   width: -webkit-fill-available;
+  background-color: whitesmoke !important;
+}
+
+html {
+  background-color: whitesmoke !important;
 }
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: whitesmoke !important;
+}
+
+a {
+  font-weight: 500;
+  color: #d8d8d8 !important;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #0d0d0e !important;
 }
 
 .logo {

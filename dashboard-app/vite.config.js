@@ -12,7 +12,8 @@ export default defineConfig({
       filename: 'dashboardEntry.js',
       exposes: {
         './LineChart': './src/exports/LineChart',
-        './CardWidget': './src/exports/CardWidget'
+        './CardWidget': './src/exports/CardWidget',
+        './PieChart': './src/exports/PieChart'
       },
       remotes: {
         container: "http://localhost:3000/assets/containerEntry.js",
