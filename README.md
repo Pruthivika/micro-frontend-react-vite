@@ -6,6 +6,14 @@ This project is a **micro frontend architecture** built using **Vite, React, Red
 2. **Dashboard Micro Frontend - `http://localhost:5001`**  
 3. **Log Micro Frontend - `http://localhost:5002`**  
 
+
+## Screenshots
+
+![App Screenshot](./screenshots/Screenshot 2025-02-22 235456.png)
+![App Screenshot](./screenshots/Screenshot 2025-02-23 100754.png)
+![App Screenshot](./screenshots/Screenshot 2025-02-23 100812.png)
+
+
 Each micro frontend is deployed separately and loaded dynamically into the host app using **Module Federation**.
 
 ---
