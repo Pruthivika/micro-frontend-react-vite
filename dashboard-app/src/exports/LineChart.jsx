@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import Highcharts, { chart } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import { Box, Heading, Text, Flex, Stat } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
 
 const LineChart = () => {
 
   const dispatch = useDispatch();
   const metrics = useSelector((state) => state.activity);
+
+  // Display a loading spinner if metrics data is not available yet
   if (!metrics) {
     return (
       <Box textAlign="center" py={10}>

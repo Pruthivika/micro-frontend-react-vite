@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { Box, Heading, Text, Flex, Stat } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
 
 const PieChart = () => {
@@ -9,6 +9,7 @@ const PieChart = () => {
     const dispatch = useDispatch();
     const metrics = useSelector((state) => state.activity);
 
+    // Display a loading spinner if metrics data is not available yet
     if (!metrics) {
         return (
             <Box textAlign="center" py={10}>
@@ -19,7 +20,9 @@ const PieChart = () => {
     }
 
     const { dailyActiveUsers, pieChartData, authenticationData } = metrics;
+    // Creating a copy of pieChartData to avoid mutating Redux state
     const pieData = pieChartData.map(item => ({ ...item }))
+
     const options = {
         chart: {
             type: "pie",

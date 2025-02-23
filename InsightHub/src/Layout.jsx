@@ -5,6 +5,7 @@ import LogoImage from "./assets/logo.png";
 const Layout = () => {
     return (
         <Flex h="90vh">
+            {/* Sidebar navigation */}
             <Box w="250px" bg="#726392" color="white" p="4">
                 <Image src={LogoImage} alt="Logo" marginBottom={10} />
                 <Stack spacing="4" color={'white'}>
@@ -26,8 +27,9 @@ const Layout = () => {
                 </Stack>
             </Box>
 
-
+            {/* Main content area */}
             <Box borderTopRightRadius={10} borderBottomRightRadius={10} flex="1" p="4" bg="gray.100">
+                {/* This is where the routed component will be rendered */}
                 <Outlet />
             </Box>
         </Flex>

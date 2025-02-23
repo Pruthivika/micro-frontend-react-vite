@@ -5,13 +5,10 @@ import LogList from 'logApp/LogList'
 
 const LogPage = () => {
     return (
-
-
         <Stack gap={4}>
             <CardWidget />
             <LogList />
         </Stack>
-
     );
 }
 

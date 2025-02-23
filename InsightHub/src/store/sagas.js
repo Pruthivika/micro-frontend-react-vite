@@ -5,8 +5,14 @@ const today = new Date();
 const options = { day: '2-digit', month: 'short', year: 'numeric' };
 const formattedDate = today.toLocaleDateString('en-GB', options).replace(',', '');
 
+/**
+ * Saga to fetch user activity statistics.
+ * Simulates an API call with a delay and updates the Redux store with mock data.
+ */
 function* fetchStats() {
-    yield delay(1000);
+    yield delay(1000); // Simulate API call delay
+
+    // Dispatch an action to update the Redux store with daily statistics
     yield put(
         setStats({
             dailyActiveUsers: 1200,
@@ -16,6 +22,7 @@ function* fetchStats() {
         })
     );
 
+    // Dispatch an action to update the Redux store with pie chart data (user distribution)
     yield put(
         setPieChartData([
             { name: "Staff", y: 151 },
@@ -24,6 +31,7 @@ function* fetchStats() {
         ])
     );
 
+    // Dispatch an action to update the Redux store with authentication method usage data
     yield put(
         setAuthenticationData([
             { name: "Microsoft", y: 100 },
@@ -32,7 +40,7 @@ function* fetchStats() {
         ])
     );
 
-
+    // Dispatch an action to update the Redux store with line chart data (user activity over time)
     yield put(
         setLineChartData([
             [Date.UTC(2025, 1, 1), 50],
@@ -46,8 +54,14 @@ function* fetchStats() {
     );
 }
 
+/**
+ * Saga to fetch activity logs.
+ * Simulates an API call with a delay and updates the Redux store with mock log data.
+ */
 function* fetchLogs() {
     yield delay(1000);
+
+    // Dispatch an action to update the Redux store with user activity logs
     yield put(
         setLogs([
             { message: "Permissions changed to admin by", actionUser: "John", user: "Alice Doe", time: "2 hours ago", type: "permission_update" },
@@ -60,6 +74,9 @@ function* fetchLogs() {
     );
 }
 
+/**
+ * Root saga that watches for dispatched actions and triggers the appropriate sagas.
+ */
 export default function* rootSaga() {
     yield takeLatest("activity/fetchStats", fetchStats);
     yield takeLatest("activity/fetchLogs", fetchLogs);

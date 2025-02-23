@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000 --strictPort",
-    "build": "vite build",
+    "build": "vite build && cd ../dashboard-app && vite build && cd ../log-app && vite build",
     "lint": "eslint .",
     "preview": "vite preview --port 3000 --strictPort",
-    "serve": "vite preview --port 3000 --strictPort"
+    "serve": "concurrently --kill-others-on-fail \"cd ../dashboard-app && vite preview --port 5001 --strictPort\" \"cd ../log-app && vite preview --port 5002 --strictPort\" \"vite preview --port 3000 --strictPort\""
   },
   "dependencies": {
     "@chakra-ui/react": "^3.8.1",
@@ -30,6 +30,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
     "eslint": "^9.19.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",

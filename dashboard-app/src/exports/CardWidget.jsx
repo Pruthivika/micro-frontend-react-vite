@@ -6,6 +6,7 @@ const CardWidget = () => {
     const dispatch = useDispatch();
     const metrics = useSelector((state) => state.activity);
 
+    // Display a loading spinner if metrics data is not available yet
     if (!metrics) {
         return (
             <Box textAlign="center" py={10}>
@@ -14,7 +15,9 @@ const CardWidget = () => {
             </Box>
         );
     }
+
     const { dailyActiveUsers, monthlyActiveUsers, dailyTimePerUser, date } = metrics;
+
 
     useEffect(() => {
         dispatch({ type: "activity/fetchStats" });

@@ -4,9 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { LuTable2, LuList } from "react-icons/lu"
 
 const LogList = () => {
+    // State to toggle between table view and list view
     const [isTableView, setIsTableView] = useState(true);
     const dispatch = useDispatch();
     const { logs } = useSelector((state) => state.activity);
+
+    // Display a loading spinner if logs data is not available yet
     if (!logs) {
         return (
             <Box textAlign="center" py={10}>
@@ -27,7 +30,7 @@ const LogList = () => {
                     Activity Log
                 </Text>
 
-
+                {/* Toggle button to switch between table and list view */}
                 <IconButton aria-label="Switch"
                     backgroundColor={'white'}
                     mb={4}
@@ -37,7 +40,7 @@ const LogList = () => {
                 </IconButton>
             </Flex>
 
-
+            {/* Render either table or list view based on state */}
             {isTableView ? (
                 <Table.Root variant="simple" size="sm" stickyHeader>
                     <Table.Header>
@@ -61,6 +64,7 @@ const LogList = () => {
                 <VStack align="start" spacing={3}>
                     {logs.map((log, index) => (
                         <Box key={index} flex={1}>
+                            {/* Render log details in list format */}
                             <Text>
                                 <Text as="span" fontWeight="bold">{log.user}</Text> {log.message} {log.actionUser !== '' && <Text as={"span"} fontWeight={'light'} fontStyle={'italic'}>{log.actionUser}</Text>}
                             </Text>
