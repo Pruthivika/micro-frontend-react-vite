@@ -9,9 +9,9 @@ This project is a **micro frontend architecture** built using **Vite, React, Red
 
 ## Screenshots
 
-![App Screenshot](./screenshots/Screenshot 2025-02-22 235456.png)
-![App Screenshot](./screenshots/Screenshot 2025-02-23 100754.png)
-![App Screenshot](./screenshots/Screenshot 2025-02-23 100812.png)
+![App Screenshot](https://github.com/Pruthivika/micro-frontend-react-vite/blob/main/screenshots/Screenshot%202025-02-22%20235456.png)
+![App Screenshot](https://github.com/Pruthivika/micro-frontend-react-vite/blob/main/screenshots/Screenshot%202025-02-23%20100754.png)
+![App Screenshot](https://github.com/Pruthivika/micro-frontend-react-vite/blob/main/screenshots/Screenshot%202025-02-23%20100812.png)
 
 
 Each micro frontend is deployed separately and loaded dynamically into the host app using **Module Federation**.
